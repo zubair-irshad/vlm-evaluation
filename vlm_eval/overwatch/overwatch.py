@@ -69,6 +69,8 @@ class DistributedOverwatch:
 class PureOverwatch:
     def __init__(self, name: str) -> None:
         """Initializer for an Overwatch object that just wraps logging."""
+
+        print("logging.getLogger(name)", logging.getLogger(name))
         self.logger = ContextAdapter(logging.getLogger(name))
 
         # Logger Delegation (for convenience; would be nice to just compose & dynamic dispatch eventually)
