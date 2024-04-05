@@ -245,7 +245,7 @@ class TextVQATaskRunner:
                 gen_answers_no_ocr = vlm.generate_answer(pixel_values, qprompts_no_ocr)
 
                 for question_id, gen_answer_ocr, gen_answer_no_ocr, question, answer in zip(
-                    question_ids, gen_answers_ocr, gen_answers_no_ocr, questions, answers, strict=True
+                    question_ids, gen_answers_ocr, gen_answers_no_ocr, questions, answers
                 ):
                     qid = int(question_id.item())
                     result_qa_pairs[qid] = {
