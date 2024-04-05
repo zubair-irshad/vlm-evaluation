@@ -35,9 +35,9 @@ logging.config.dictConfig(LOG_CONFIG)
 
 # === Custom Contextual Logging Logic ===
 class ContextAdapter(LoggerAdapter):
-    def __init__(self, logger, extra):
-        super().__init__(logger, extra)
-        
+    def __init__(self, logger):
+        super().__init__(logger)
+
     CTX_PREFIXES = {0: "[*] "} | {idx: "|=> ".rjust(4 + (idx * 4)) for idx in [1, 2, 3]}
 
     def process(self, msg, kwargs):
@@ -52,6 +52,7 @@ class DistributedOverwatch:
 
         # Note that PartialState is always safe to initialize regardless of `accelerate launch` or `torchrun`
         #   =>> However, might be worth actually figuring out if we need the `accelerate` dependency at all!
+        print("logging.getLogger(name)", logging.getLogger(name))
         self.logger, self.distributed_state = ContextAdapter(logging.getLogger(name)), PartialState()
 
         # Logger Delegation (for convenience; would be nice to just compose & dynamic dispatch eventually)
