@@ -216,7 +216,7 @@ class VSRTaskRunner:
                 )
 
                 for example_id, gen_probs, caption, true_false_answer in zip(
-                    example_ids, gen_probabilities, captions, true_false_answers, strict=True
+                    example_ids, gen_probabilities, captions, true_false_answers
                 ):
                     ex_id = int(example_id.item())
                     result_qa_pairs[ex_id] = {

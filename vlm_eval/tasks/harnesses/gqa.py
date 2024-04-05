@@ -230,7 +230,7 @@ class GQATaskRunner:
 
                 gen_answers = vlm.generate_answer(pixel_values, question_prompts)
                 for question_id, gen_answer, question, answer in zip(
-                    question_ids, gen_answers, questions, answers, strict=True
+                    question_ids, gen_answers, questions, answers
                 ):
                     qid = int(question_id.item())
                     result_qa_pairs[qid] = {

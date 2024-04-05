@@ -248,7 +248,7 @@ class VizWizTaskRunner:
                 gen_answers = vlm.generate_answer(pixel_values, question_prompts)
 
                 for question_id, gen_answer, question, answer, answerable in zip(
-                    question_ids, gen_answers, questions, answers, answerables, strict=True
+                    question_ids, gen_answers, questions, answers, answerables
                 ):
                     qid = int(question_id.item())
                     answerable = int(answerable.item())

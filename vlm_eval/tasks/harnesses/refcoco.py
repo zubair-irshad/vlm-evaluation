@@ -269,7 +269,7 @@ class RefCOCOTaskRunner:
 
                 gen_bboxes = vlm.generate_answer(pixel_values, ref_exp_prompts)
                 for example_id, gen_bbox, ref_exp, bbox_gt in zip(
-                    example_ids, gen_bboxes, ref_exps, bboxes, strict=True
+                    example_ids, gen_bboxes, ref_exps, bboxes
                 ):
                     ex_id = int(example_id.item())
                     result_sent_bbox_pairs[ex_id] = {

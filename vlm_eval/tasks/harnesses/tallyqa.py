@@ -236,7 +236,7 @@ class TallyQATaskRunner:
                 )
 
                 for qid, gen_probs, question, answer in zip(
-                    question_ids, gen_probabilities, questions, answers, strict=True
+                    question_ids, gen_probabilities, questions, answers
                 ):
                     qid = int(qid.item())
                     result_qa_pairs[qid] = {
