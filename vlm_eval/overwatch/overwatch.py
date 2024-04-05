@@ -35,6 +35,9 @@ logging.config.dictConfig(LOG_CONFIG)
 
 # === Custom Contextual Logging Logic ===
 class ContextAdapter(LoggerAdapter):
+    def __init__(self, logger, extra):
+        super().__init__(logger, extra)
+        
     CTX_PREFIXES = {0: "[*] "} | {idx: "|=> ".rjust(4 + (idx * 4)) for idx in [1, 2, 3]}
 
     def process(self, msg, kwargs):
